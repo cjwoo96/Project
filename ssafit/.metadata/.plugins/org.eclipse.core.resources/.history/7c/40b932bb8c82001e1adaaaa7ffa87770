@@ -1,0 +1,6 @@
+package com.example.demo.model.service;
+
+public interface UserService {
+	// 회원가입
+	int signup(User user);
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- name space는 UserRepo의 fully qualified name으로 설정한다. -->
+<mapper namespace="com.example.demo.model.dao.VideoDao">
+
+	<!-- id, title, part, link, viewcnt, channelname -->
+	<!-- videoId, title, fitPartName, channelName, viewCnt, url -->
+	<!-- 영상 상세 -->
+	<select id="selectVideoById" parameterType="int"
+		resultType="Video">
+		SELECT ID AS videoId, title as title, link as url, viewCnt as viewCnt, part as fitPartName, channelName as channelName FROM VIDEO WHERE ID = #{videoId}
+	</select>
+	<!-- 영상 조회수 순서대로 조회 -->
+	<select id="selectByView" resultType="Video">
+		SELECT  ID AS videoId, title as title, link as url, viewCnt as viewCnt, part as fitPartName, channelName as channelName FROM VIDEO ORDER
+		BY VIEWCNT DESC LIMIT 3
+	</select>
+
+	<!-- 운동 부위별로 조회 -->
+	<select id="selectByPart" parameterType="String"
+		resultType="Video">
+		SELECT ID AS videoId, title as title, link as url, viewCnt as viewCnt, part as fitPartName, channelName as channelName FROM VIDEO WHERE PART = #{part}
+	</select>
+
+	<!-- 영상 전체 조회 -->
+	<select id="select" resultType="Video">
+		SELECT  ID AS videoId, title as title, link as url, viewCnt as viewCnt, part as fitPartName, channelName as channelName FROM VIDEO;
+	</select>
+
+</mapper>

@@ -1,0 +1,29 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.dto.User;
+import com.example.demo.model.Service.UserService;
+
+@RestController
+@RequestMapping("/api_User")
+public class UserRestController {
+
+	@Autowired
+	private UserService userservice;
+
+	@PostMapping("signup")
+	public ResponseEntity<Integer> signup(User user) {
+		int result = userservice.signup(user);
+
+		// result 가 0이면 등록 x
+		// result 가 1이면 등록 o
+		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
+	}
+
+}

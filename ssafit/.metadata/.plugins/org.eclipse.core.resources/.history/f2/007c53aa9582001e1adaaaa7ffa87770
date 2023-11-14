@@ -1,0 +1,6 @@
+package com.example.demo.model.dao;
+
+public interface UserDao {
+
+	int insertUser(User user);
+}

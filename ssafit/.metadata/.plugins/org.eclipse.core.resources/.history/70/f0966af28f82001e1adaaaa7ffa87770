@@ -1,0 +1,9 @@
+package com.example.demo.model.dto;
+
+public class User {
+	String Id;
+	String Password;
+	int age;
+	int TrainingExperience;
+	
+}
