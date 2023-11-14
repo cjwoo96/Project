@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,14 +24,6 @@ public class UserRestController {
 		// result 가 0이면 등록 x
 		// result 가 1이면 등록 o
 		return new ResponseEntity<Integer>(result, HttpStatus.CREATED);
-	}
-	
-	@PostMapping("login")
-	public ResponseEntity<?> login(User user, HttpSession Session){
-		User temp=userservice.login(user);
-		if(temp==null) return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		Session.setAttribute("loginUser", temp.getId());
-		return new ResponseEntity<String>(temp.getId(),HttpStatus.OK);
 	}
 
 }

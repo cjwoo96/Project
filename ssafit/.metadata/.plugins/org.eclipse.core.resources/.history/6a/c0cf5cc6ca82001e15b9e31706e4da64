@@ -29,17 +29,6 @@ public class UserServiceImpl implements UserService{
 	public int signup(User user) {
 		return userdao.insertUser(user);
 	}
-
-
-	@Override
-	public User login(User user) {
-		User temp=userdao.SelectOne(user.getId());
-		if(temp!=null&&temp.getId().equals(user.getId())) {
-			return temp;
-		}
-		return null;
-	}
-	
 	
 	
 	

@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="SelectOne" parameterType="String" resultType="User">
-	 	SELECT * FROM USER WHERE id=#{id}
+	 	SELECT FROM USER WHERE id=#{id}
 	</select>
 	
 			

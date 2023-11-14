@@ -30,10 +30,7 @@ public class UserRestController {
 	
 	@PostMapping("login")
 	public ResponseEntity<?> login(User user, HttpSession Session){
-		User temp=userservice.login(user);
-		if(temp==null) return new ResponseEntity<Void>(HttpStatus.UNAUTHORIZED);
-		Session.setAttribute("loginUser", temp.getId());
-		return new ResponseEntity<String>(temp.getId(),HttpStatus.OK);
+		
 	}
 
 }

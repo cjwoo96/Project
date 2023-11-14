@@ -4,5 +4,4 @@ import com.example.demo.model.dto.User;
 
 public interface UserService {
 	int signup(User user);
-	User login(User user);
 }
